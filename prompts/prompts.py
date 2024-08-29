@@ -48,7 +48,8 @@ There could be connections between distinct parts of observations. For example i
 Several triplets can be extracted, that contain information about the same node. For example 'kitchen, contains, apple', 'kitchen, contains, table', 'apple, is on, table'. Do not miss this type of connections.
 Other examples of triplets: 'room z, contains, black locker'; 'room x, has exit, east', 'apple, is on, table', 'key, is in, locker', 'apple, to be, grilled', 'potato, to be, sliced', 'stove, used for, frying', 'recipe, requires, green apple', 'recipe, requires, potato'.
 Do not include triplets that state the current location of an agent like 'you, are in, location'.
-Do not use 'none' as one of the entities.
+Do not use 'none' as one of the entities. 
+Do not write anything else in the end after you are finished, e.g. do not write "Let me know if I missed any important information or if these triplets meet the guidelines!". 
 If there is information that you read something, do not forget to incluse triplets that state that entitie that you read contains information that you extract.
 
 Example of triplets you have extracted before: {example}

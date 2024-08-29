@@ -1,0 +1,124 @@
+New triplets: ['john, travelled to, hallway', 'john, travelled to, office', 'mary, went back to, kitchen', 'mary, went back to, bathroom', 'daniel, journeyed to, hallway', 'daniel, moved to, kitchen']
+---------------
+QUESTION: Where is Mary? 
+CRUCIAL ITEMS: {'Mary': 3}
+ASSOCIATED SUBGRAPH: ['daniel, moved to, kitchen', 'john, travelled to, hallway', 'daniel, journeyed to, hallway', 'mary, went back to, bathroom', 'mary, went back to, kitchen', 'john, travelled to, office']
+EPISODIC MEMORY: ['John travelled to the hallway.John travelled to the office.Mary went back to the kitchen.Mary went back to the bathroom.Daniel journeyed to the hallway.Daniel moved to the kitchen.']
+AGENT ANSWER: CoT: I need to find the most recent information about Mary's location. I see that there are two relevant facts about Mary: 'mary, went back to, bathroom' and 'mary, went back to, kitchen'. Since both facts have the same verb "went back to", I will consider the order of appearance in the text. The fact 'mary, went back to, kitchen' appears after 'mary, went back to, bathroom', so it is more recent.
+Direct answer: kitchen
+TRUE ANSWER: bathroom
+F1: nan, RECALL: 0.0, PRECISION: 0.0, EXACT MATCH: 0.0
+========================================================
+
+New triplets: ['sandra, moved to, bathroom', 'daniel, moved to, bedroom', 'john, went to, office', 'john, went back to, kitchen', 'mary, travelled to, office', 'daniel, journeyed to, office', 'john, went to, hallway', 'john, went to, bathroom']
+---------------
+QUESTION: Where is John? 
+CRUCIAL ITEMS: {'John': 3}
+ASSOCIATED SUBGRAPH: ['john, went to, office', 'sandra, moved to, bathroom', 'john, went back to, kitchen', 'daniel, moved to, bedroom', 'daniel, journeyed to, office', 'john, went to, bathroom', 'mary, travelled to, office', 'john, went to, hallway']
+EPISODIC MEMORY: ['Sandra moved to the bathroom.Daniel moved to the bedroom.John went to the office.John went back to the kitchen.Mary travelled to the office.Daniel journeyed to the office.John went to the hallway.John went to the bathroom.']
+AGENT ANSWER: CoT: I need to find the most recent location of John. Let me check the relevant facts from my memory... Ah, here it is! The last fact about John's location is 'john, went to, bathroom'. This means that after going to the office and then back to the kitchen, John went to the hallway and finally ended up in the bathroom.
+
+Direct answer: Bathroom
+TRUE ANSWER: bathroom
+F1: 0.5, RECALL: 0.5, PRECISION: 0.5, EXACT MATCH: 0.5
+========================================================
+
+New triplets: ['john, went to, garden', 'mary, went back to, bathroom']
+---------------
+QUESTION: Where is Mary? 
+CRUCIAL ITEMS: {'Mary': 3}
+ASSOCIATED SUBGRAPH: ['john, went to, garden', 'mary, went back to, bathroom']
+EPISODIC MEMORY: ['John went to the garden.Mary went back to the bathroom.']
+AGENT ANSWER: CoT: I recall a relevant text from my memory that mentions Mary's location. The text states "Mary went back to the bathroom." This suggests that Mary is currently in the bathroom.
+
+Direct answer: Bathroom
+TRUE ANSWER: bathroom
+F1: 0.6666666666666666, RECALL: 0.6666666666666666, PRECISION: 0.6666666666666666, EXACT MATCH: 0.6666666666666666
+========================================================
+
+New triplets: ['mary, travelled to, hallway', 'john, journeyed to, garden', 'sandra, went to, kitchen', 'john, travelled to, bathroom', 'daniel, went to, office', 'daniel, journeyed to, bedroom', 'john, went to, garden', 'sandra, went back to, bathroom', 'sandra, moved to, office', 'john, moved to, kitchen']
+---------------
+QUESTION: Where is Sandra? 
+CRUCIAL ITEMS: {'Sandra': 3}
+ASSOCIATED SUBGRAPH: ['daniel, went to, office', 'sandra, went to, kitchen', 'daniel, journeyed to, bedroom', 'john, went to, garden', 'sandra, went back to, bathroom', 'sandra, moved to, office', 'mary, travelled to, hallway', 'john, moved to, kitchen', 'john, travelled to, bathroom', 'john, journeyed to, garden']
+EPISODIC MEMORY: ['Mary travelled to the hallway.John journeyed to the garden.Sandra went to the kitchen.John travelled to the bathroom.Daniel went to the office.Daniel journeyed to the bedroom.John went to the garden.Sandra went back to the bathroom.Sandra moved to the office.John moved to the kitchen.']
+AGENT ANSWER: CoT: Sandra's initial location was the kitchen, but then she went back to the bathroom. However, her most recent move was to the office, which should be considered as her current location.
+Direct answer: Office
+TRUE ANSWER: office
+F1: 0.75, RECALL: 0.75, PRECISION: 0.75, EXACT MATCH: 0.75
+========================================================
+
+New triplets: ['daniel, went to, kitchen', 'john, journeyed to, bathroom']
+---------------
+QUESTION: Where is John? 
+CRUCIAL ITEMS: {'John': 3}
+ASSOCIATED SUBGRAPH: ['john, journeyed to, bathroom', 'daniel, went to, kitchen']
+EPISODIC MEMORY: ['Daniel went to the kitchen.John journeyed to the bathroom.']
+AGENT ANSWER: CoT: I recall a relevant text from my memory that mentions John's location. The text states "John journeyed to the bathroom." This suggests that John is currently in the bathroom. 
+Direct answer: Bathroom
+TRUE ANSWER: bathroom
+F1: 0.8000000000000002, RECALL: 0.8, PRECISION: 0.8, EXACT MATCH: 0.8
+========================================================
+
+New triplets: ['mary, moved from, hallway', 'john, moved to, garden', 'sandra, moved to, kitchen', 'mary, moved to, office', 'daniel, moved to, office', 'daniel, went to, bathroom', 'mary, journeyed to, bedroom', 'daniel, journeyed to, hallway']
+---------------
+QUESTION: Where is Daniel? 
+CRUCIAL ITEMS: {'Daniel': 3}
+ASSOCIATED SUBGRAPH: ['mary, moved from, hallway', 'daniel, went to, bathroom', 'daniel, moved to, office', 'sandra, moved to, kitchen', 'daniel, journeyed to, hallway', 'mary, journeyed to, bedroom', 'mary, moved to, office', 'john, moved to, garden']
+EPISODIC MEMORY: ['Mary went back to the hallway.John moved to the garden.Sandra moved to the kitchen.Mary moved to the office.Daniel moved to the office.Daniel went to the bathroom.Mary journeyed to the bedroom.Daniel journeyed to the hallway.']
+AGENT ANSWER: CoT: I need to find the most recent information about Daniel's location. Let me check the relevant facts... Ah, here it is! The last fact about Daniel says he moved to the office. However, there's another fact that says he went to the bathroom, but then he journeyed to the hallway and finally moved to the office. Since moving to a location usually implies a more permanent change than going or journeying, I'll rely on the most recent "moved" fact.
+
+Direct answer: Office
+TRUE ANSWER: hallway
+F1: 0.6666666666666666, RECALL: 0.6666666666666666, PRECISION: 0.6666666666666666, EXACT MATCH: 0.6666666666666666
+========================================================
+
+New triplets: ['mary, travelled to, hallway', 'mary, went back to, office']
+---------------
+QUESTION: Where is Mary? 
+CRUCIAL ITEMS: {'Mary': 3}
+ASSOCIATED SUBGRAPH: ['mary, travelled to, hallway', 'mary, went back to, office']
+EPISODIC MEMORY: ['Mary travelled to the hallway.Mary went back to the office.']
+AGENT ANSWER: CoT: Mary travelled to the hallway, but then she went back to the office. This means her current location is where she went back to after being in the hallway.
+Direct answer: The office.
+TRUE ANSWER: office
+F1: 0.6666666666666666, RECALL: 0.7142857142857143, PRECISION: 0.625, EXACT MATCH: 0.5714285714285714
+========================================================
+
+New triplets: ['mary, travelled to, office', 'daniel, journeyed to, garden', 'sandra, went back to, hallway', 'daniel, journeyed to, bedroom', 'daniel, moved to, office', 'sandra, went back to, kitchen', 'mary, journeyed to, bedroom', 'sandra, moved to, office', 'mary, went back to, office', 'mary, moved to, kitchen']
+---------------
+QUESTION: Where is Sandra? 
+CRUCIAL ITEMS: {'Sandra': 3}
+ASSOCIATED SUBGRAPH: ['mary, moved to, kitchen', 'daniel, moved to, office', 'sandra, went back to, kitchen', 'daniel, journeyed to, bedroom', 'sandra, went back to, hallway', 'mary, travelled to, office', 'mary, journeyed to, bedroom', 'sandra, moved to, office', 'mary, went back to, office', 'daniel, journeyed to, garden']
+EPISODIC MEMORY: ['Mary travelled to the office.Daniel journeyed to the garden.Sandra went back to the hallway.Daniel journeyed to the bedroom.Daniel moved to the office.Sandra went back to the kitchen.Mary journeyed to the bedroom.Sandra moved to the office.Mary went back to the office.Mary moved to the kitchen.']
+AGENT ANSWER: CoT: Sandra moved to the office, but then she went back to the kitchen. After that, she went back to the hallway and finally moved to the office again. 
+Direct answer: Office
+TRUE ANSWER: office
+F1: 0.7058823529411765, RECALL: 0.75, PRECISION: 0.6666666666666666, EXACT MATCH: 0.625
+========================================================
+
+New triplets: ['john, travelled to, kitchen', 'daniel, travelled to, bedroom', 'daniel, went back to, hallway', 'sandra, journeyed to, office']
+---------------
+QUESTION: Where is Daniel? 
+CRUCIAL ITEMS: {'Daniel': 3}
+ASSOCIATED SUBGRAPH: ['sandra, journeyed to, office', 'daniel, travelled to, bedroom', 'john, travelled to, kitchen', 'daniel, went back to, hallway']
+EPISODIC MEMORY: ['John travelled to the kitchen.Daniel travelled to the bedroom.Daniel went back to the hallway.Sandra journeyed to the office.']
+AGENT ANSWER: CoT: I recall that Daniel initially travelled to the bedroom, but then he went back to the hallway. This means his current location is the hallway. 
+Direct answer: The hallway
+TRUE ANSWER: hallway
+F1: 0.7000000000000001, RECALL: 0.7777777777777778, PRECISION: 0.6363636363636364, EXACT MATCH: 0.5555555555555556
+========================================================
+
+New triplets: ['sandra, moved from, bathroom', 'sandra, moved to, office', 'mary, moved to, garden', 'mary, moved back to, hallway', 'john, moved back to, hallway', 'john, travelled to, office', 'sandra, journeyed to, hallway', 'daniel, moved to, office', 'mary, went to, office']
+---------------
+QUESTION: Where is John? 
+CRUCIAL ITEMS: {'John': 3}
+ASSOCIATED SUBGRAPH: ['sandra, journeyed to, hallway', 'sandra, moved from, bathroom', 'daniel, moved to, office', 'mary, went to, office', 'sandra, moved to, office', 'mary, moved to, garden', 'john, moved back to, hallway', 'john, travelled to, office', 'mary, moved back to, hallway']
+EPISODIC MEMORY: ['Sandra went back to the bathroom.Mary moved to the garden.Mary went back to the hallway.Sandra went to the office.John went back to the hallway.John travelled to the office.Sandra journeyed to the hallway.Daniel moved to the office.Mary went to the office.Sandra went to the office.']
+AGENT ANSWER: CoT: I need to find information about John's location. I will look for sentences that mention John and a place he moved to. I found two relevant sentences: 'John went back to the hallway' and 'John travelled to the office'. Since 'went back' implies returning to a previous location, it is likely that John was in the hallway after being in another place. However, since there are no other mentions of John moving from the hallway again, I will consider this as his current location.
+
+Direct answer: Hallway
+TRUE ANSWER: office
+F1: 0.6363636363636365, RECALL: 0.7, PRECISION: 0.5833333333333334, EXACT MATCH: 0.5
+========================================================
+
