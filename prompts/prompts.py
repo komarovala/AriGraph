@@ -60,3 +60,23 @@ Remember that triplets must be extracted in format: "subject_1, relation_1, obje
 
 Extracted triplets: '''
 
+test_prompt = '''
+Objective: The main goal is to generate SPARQL query to get information from structured knowledge graph.
+
+Guidelines for generate query:
+
+Create SPARQL query to get intormation from question from RDF graph  
+
+Question: {observation}
+
+Example of query:
+
+SELECT ?location WHERE {
+  ?person rdfs:label "Mary" .
+  ?person dbo:location ?location .
+}
+
+Generate only select query as string without any additional information 
+'''
+
+

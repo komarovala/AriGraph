@@ -4,7 +4,7 @@ from copy import deepcopy
 from utils.contriever import Retriever
 from graphs.parent_graph import TripletGraph
 from utils.retriever_search_drafts import graph_retr_search
-from prompts.prompts import prompt_extraction_current, prompt_refining_items
+from prompts.prompts import prompt_extraction_current, prompt_refining_items, test_prompt
 
 from utils.utils import process_triplets, parse_triplets_removing, \
     find_direction, find_opposite_direction, find_top_episodic_emb, \
@@ -116,6 +116,12 @@ class ContrieverGraph(TripletGraph):
         obs_value = [new_triplets_str, obs_embedding]
         self.obs_episodic[observation] = obs_value
         return new_triplets_raw, obs_value
+
+    def create_sparql(self, observation):
+        prompt = test_prompt.format(observation=observation)
+        response, _ = self.generate(prompt, t=0.001)
+
+        return response
     
     def retrieve(self, items1, retrieve_base, retrieve_facts, topk_episodic):
         triplets = self.triplets_to_str(self.triplets)
